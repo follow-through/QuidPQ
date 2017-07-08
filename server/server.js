@@ -25,6 +25,14 @@ app.post("/item", (req, res) => {
     })
 })
 
+app.get("/item", (req, res) => {
+    Item.find().then((items)=>{
+        res.send({items});
+    }, (e)=>{
+        res.status(400).send(e);
+    })
+})
+
 
 
 
