@@ -22,7 +22,13 @@ class App extends Component {
  componentDidMount(){
    fetch("/item")
       .then(res => res.json())
-      .then(item => this.setState({items: item}));
+      .then(item => this.setState({items: item}))
+      
+      // .then(()=>{
+      //   fetch("/user")
+      //     .then(res => res.json())
+      //     .then(user => this.setState({users: user}))
+      // })
  }
   handleNameChange(e){
     this.setState({
