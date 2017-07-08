@@ -27,7 +27,6 @@ class App extends Component {
  
 componentDidMount(){
    
-
    fetch("/item")
       .then(res => res.json())
       .then(item => this.items = item)
@@ -56,7 +55,9 @@ componentDidMount(){
       message: e.target.value
     })
   }
-  handleSubmit(){
+  handleSubmit(e){
+    console.log("event", e)
+    e.preventDefault()
     console.log("this.state.message", this.state.message);
     fetch("/message",{
     method: "POST",
@@ -100,11 +101,11 @@ componentDidMount(){
 
 
             
-             <form className="screen input hvr-rectangle-out" onSubmit={()=>{this.handleSubmit}}>
+             <form className="screen input hvr-rectangle-out" onSubmit={this.handleSubmit}>
               <label className="submission1">Submit New Message</label>
               <label>Message</label>
               <input className="submission4" type="text" onChange={this.handleMessageChange}/>
-              <input className="submission3" type="submit"></input>
+              <input className="submission3" type="submit" ></input>
             </form>
 
          
