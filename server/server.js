@@ -6,7 +6,7 @@ const User = require("./models/user")
 const Item = require("./models/item")
 
 const app = express();
-
+const router = express.Router();
 app.use(bodyParser.json());
 
 
@@ -27,17 +27,25 @@ app.post("/item", (req, res) => {
 
 app.get("/item", (req, res) => {
     Item.find().then((items)=>{
-        res.send({items});
+        res.send(items);
     }, (e)=>{
         res.status(400).send(e);
     })
 })
 
+// app.get("/user", (req, res) =>{
+//     User.find().then((users)=>{
+//         res.send({users});
+//     }, (e)=>{
+//         res.status(400).send(e);
+//     })
+// })
 
 
 
-app.listen(3000, () => {
-    console.log("Server started on port 3000");
+
+app.listen(3001, () => {
+    console.log("Server started on port");
 })
 // user1.save().then((user)=>{
 //     console.log("Successfully saved", user);
