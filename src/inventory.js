@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+
 import SearchBar from './searchBar.js'
-import Shelf from './shelf.js'
+import Box from './box.js'
 import TradeBtn from './tradeBtn.js'
 
 class Inventory extends Component {
@@ -15,7 +15,7 @@ class Inventory extends Component {
        //include shelves
       <div>
         <SearchBar />
-        <Shelf />
+        <Box />
         <TradeBtn />
       </div>
      );

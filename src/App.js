@@ -6,6 +6,16 @@ import Inventory from './inventory.js'
 
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    
+    this.state = {
+      items: [],
+      username: 'string',
+      messages: []
+    };
+  }
+
   render() {
       console.log('testeroni and cheese');
     return (

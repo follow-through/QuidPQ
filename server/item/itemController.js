@@ -9,11 +9,11 @@ itemController.verifyItem = () => {
 };
 
 itemController.getUserItems = () => {
-  //if user is logged in
-  if(sessionController.isLoggedIn){
-    //send a get request to db for user's itemSchema
-    //push the items to the 
-  }
+  //user is logged in if hits this step
+  // save items to res.locals
 }
 
+itemController.getFrontPageItems = () => {
+
+};
 module.exports = itemController;

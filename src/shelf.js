@@ -6,8 +6,9 @@ class Shelf extends Component {
   }
 
   render() {
+    //render 3 items 
      return (
-    <div className='shelf' >{/*should take props from inventory obj*/}</div>
+     <div className='shelf' >{/*should take props from inventory obj*/}</div>
 
      );
    }
