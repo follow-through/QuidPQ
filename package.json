@@ -1,0 +1,30 @@
+{
+  "name": "quidpq",
+  "version": "1.0.0",
+  "description": "Modern Age Bartering",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QuidPQ/QuidPQ.git"
+  },
+  "keywords": [
+    "trade"
+  ],
+  "author": "Hai Zhu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/QuidPQ/QuidPQ/issues"
+  },
+  "homepage": "https://github.com/QuidPQ/QuidPQ#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "mongod": "^2.0.0",
+    "mongodb": "^2.2.29",
+    "mongoose": "^4.11.1"
+  }
+}
