@@ -117,6 +117,10 @@ body{
   border: 1px solid white;
 }
 
+.loggedIn{
+  display: none;
+}
+
 .main-content{
   flex: 1;
   /*background-color: hsla(200,40%,30%,.4);

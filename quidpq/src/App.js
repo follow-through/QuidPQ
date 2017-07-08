@@ -15,14 +15,22 @@ class App extends Component {
       users: [],
       messages: [],
       toSend: "items",
-      message: ""
+      message: "",
+      newUserName: null,
+      newPassword: null,
+      isLoggedIn: false
     }
     this.users = [];
     this.items = [];
+    this.login = [];
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handlePassChange = this.handlePassChange.bind(this);
     this.handleMessageChange = this.handleMessageChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleNewAccountName = this.handleNewAccountName.bind(this);
+    this.handleNewAccountPass = this.handleNewAccountPass.bind(this);
+    this.handleSignUp = this.handleSignUp.bind(this);
+    this.handleLogin = this.handleLogin.bind(this);
   }
  
 componentDidMount(){
@@ -40,6 +48,20 @@ componentDidMount(){
         })
       })
  }
+
+  handleNewAccountName(e){
+    this.setState({
+        newUserName: e.target.value
+      
+    })
+  }
+
+  handleNewAccountPass(e){
+    this.setState({
+        newPassword: e.target.value
+    })
+  }
+
   handleNameChange(e){
     this.setState({
       userName: e.target.value
@@ -56,7 +78,6 @@ componentDidMount(){
     })
   }
   handleSubmit(e){
-    console.log("event", e)
     e.preventDefault()
     console.log("this.state.message", this.state.message);
     fetch("/message",{
@@ -77,6 +98,42 @@ componentDidMount(){
       console.log('Request failure: ', error);  
     });
   }
+  handleSignUp(e){
+    e.preventDefault()
+    fetch("/user", {
+    method: "POST",
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      userName: this.state.newUserName,
+      password: this.state.newPassword
+    })
+    })
+    .then(function (data) {  
+      console.log('Request success: ', data);  
+    })  
+    .catch(function (error) {  
+      console.log('Request failure: ', error);  
+    });
+  }
+  handleLogin(e){
+    e.preventDefault();
+    this.setState({
+      isLoggedIn : true
+    })
+    // fetch("/user")
+    // .then((res) => {  
+    //   res.json();
+    // })  
+    // .then((user) =>{  
+    //   console.log(JSON.stringify(user));
+    // });
+  }
+
+  
+
   render() {
     return (
       <div className="App">
@@ -85,12 +142,14 @@ componentDidMount(){
           <div>{this.state.userName}</div>
           <div>{this.state.password}</div>
           <div>{this.state.message}</div>
+          <div>{this.state.newUserName}</div>
+          <div>{this.state.newPassword}</div>
         </div>
         <div className="app-wrapper">
           <div className="app-nav">
 
 
-            <form className="screen input hvr-rectangle-out">
+            <form className={this.state.isLoggedIn === true?"screen input hvr-rectangle-out loggedIn": "screen input hvr-rectangle-out"} onSubmit={this.handleLogin}>
               <label className="submission1">Login</label>
               <label>Username</label>
               <input className="submission2" type="text" onChange={this.handleNameChange}/>
@@ -106,6 +165,16 @@ componentDidMount(){
               <label>Message</label>
               <input className="submission4" type="text" onChange={this.handleMessageChange}/>
               <input className="submission3" type="submit" ></input>
+            </form>
+
+
+             <form className="screen input hvr-rectangle-out" onSubmit={this.handleSignUp}>
+              <label className="submission1">SignUp</label>
+              <label>Username</label>
+              <input className="submission2" type="text" onChange={this.handleNewAccountName}/>
+              <label>Password</label>
+              <input className="submission2" type="text" onChange={this.handleNewAccountPass}/>
+              <input className="submission3" type="submit"></input>
             </form>
 
          
