@@ -185,6 +185,9 @@ componentDidMount(){
           </div> 
           <div className="main-content">
             <Screen stateList={this.state} />
+            <img src="https://68.media.tumblr.com/92dd6df1baf543d9b5edc3af634eb9be/tumblr_nsjxnqzo9V1sslvquo1_500.gif" alt=""/>
+            <img src="http://vignette2.wikia.nocookie.net/animal-jam-clans-1/images/0/01/Giphly.gif/revision/latest?cb=20160713113029" alt=""/>
+            <img src="https://lh4.googleusercontent.com/-cYRgARRu6bc/UTtVJ1uheXI/AAAAAAAALyk/uux6yLCEAm0/w506-h750/jensen_dance.gif" alt=""/>
           </div>
         </div>
       </div>

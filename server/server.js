@@ -12,7 +12,18 @@ app.use(bodyParser.json());
 
 
 //Routes
-
+app.post("/user", (req, res) => {
+    let user = new User ({
+        userName: req.body.userName,
+        password: req.body.password
+    })
+    user.save().then((i)=>{
+        res.send(i);
+    }, (e)=>{
+        res.status(400);
+        res.send(e);
+    })
+})
 
 app.post("/item", (req, res) => {
     let item = new Item ({
@@ -57,6 +68,7 @@ app.get("/user", (req, res) =>{
         res.status(400).send(e);
     })
 })
+
 
 app.get("/message", (req, res) =>{
     Message.find().then((messages)=>{
